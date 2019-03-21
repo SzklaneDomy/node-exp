@@ -1,0 +1,27 @@
+<!-- views/pages/index.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <% include ../partials/head %>
+</head>
+<body class="container">
+
+<header>
+    <% include ../partials/header %>
+</header>
+
+<main>
+    <form action="add/new_user" method="POST">
+        <input type="text" name="new_first_name" placeholder="new first name">
+        <input type="text" name="new_last_name" placeholder="new last name">
+        <button>Submit</button>
+    </form>
+</main>
+
+<footer>
+    <% include ../partials/footer %>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!-- views/pages/user_list.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <% include ../partials/head %>
+</head>
+<body class="container">
+
+<header>
+    <% include ../partials/header %>
+</header>
+
+<main>
+    <table class="table table-striped">
+            <thead>  
+                    <tr>  
+                        <th>ID</th>  
+                        <th>first name</th> 
+                        <th>last name</th>  
+                    </tr>  
+                </thead>
+            <tbody>
+            <% print.forEach(function (user) { %>
+                <tr>  
+                    <td><%= user.id %></td> 
+                    <td><%= user.first_name %></td> 
+                    <td><%= user.last_name %></td>
+                    <td>
+                        <button class="show">show</button>
+                    </td>
+                </tr>                                   
+             <% }) %>
+            </tbody>
+    </table>
+</main>
+
+<footer>
+    <% include ../partials/footer %>
+</footer>
+
+<script>
+    let btns = document.querySelectorAll('.show');
+    btns.forEach(btn => {
+        btn.addEventListener('click', e => {
+            let userID = e.target.parentElement.parentElement;
+            userID =  userID.children[0].innerHTML;
+
+            location.replace(`http://localhost:1337/user/${userID}`)
+        })
+    });
+</script>
+</body>
+</html>
