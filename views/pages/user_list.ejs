@@ -17,18 +17,19 @@
                     <tr>  
                         <th>ID</th>  
                         <th>first name</th> 
-                        <th>last name</th>  
+                        <th>last name</th>
                     </tr>  
                 </thead>
             <tbody>
             <% print.forEach(function (user) { %>
-                <tr>  
-                    <td><%= user.id %></td> 
+                <tr>
+                    <td><%= user.user_id %></td> 
                     <td><%= user.first_name %></td> 
                     <td><%= user.last_name %></td>
                     <td>
                         <button class="show">show</button>
                     </td>
+                    <td class="table-order-num" style="font-size: 10px"></td>
                 </tr>                                   
              <% }) %>
             </tbody>
@@ -43,12 +44,15 @@
     let btns = document.querySelectorAll('.show');
     btns.forEach(btn => {
         btn.addEventListener('click', e => {
-            let userID = e.target.parentElement.parentElement;
-            userID =  userID.children[0].innerHTML;
-
+            let userID = e.target.parentElement.parentElement.children[0].innerHTML;
             location.replace(`http://localhost:1337/user/${userID}`)
         })
     });
+
+    const tableOrderNum = document.querySelectorAll('.table-order-num')
+    for(i = 0; i<=tableOrderNum.length; i++){
+       tableOrderNum[i].innerHTML = i+1;
+    }
 </script>
 </body>
 </html>

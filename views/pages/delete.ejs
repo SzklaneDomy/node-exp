@@ -1,0 +1,26 @@
+<!-- views/pages/user_list.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <% include ../partials/head %>
+</head>
+<body class="container">
+
+<header>
+    <% include ../partials/header %>
+</header>
+
+<main>
+    <form action="delete/user_delete" method="POST">
+        <h3>Delete a user by ID</h3>
+        <input type="text" name="user_delete">
+        <button>delete</button>
+    </form>
+</main>
+
+<footer>
+    <% include ../partials/footer %>
+</footer>
+</body>
+</html>
